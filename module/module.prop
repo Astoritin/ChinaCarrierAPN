@@ -4,3 +4,4 @@ version=1.0
 versionCode=1
 author=Astoritin
 description=Replace stock APN list with China carrier entries.
+updateJson=https://raw.githubusercontent.com/Astoritin/ChinaCarrierAPN/main/upgrade/update.json
