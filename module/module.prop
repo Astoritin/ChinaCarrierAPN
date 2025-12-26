@@ -1,0 +1,6 @@
+id=cn_carrier_apn
+name=ChinaCarrierAPN
+version=1.0
+versionCode=1
+author=Astoritin
+description=Replace stock APN list with China carrier entries.
