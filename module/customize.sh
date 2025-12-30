@@ -45,14 +45,13 @@ extract "customize.sh" "$TMPDIR"
 extract "$APN_PATH" "$TMPDIR"
 extract "module.prop"
 
-MIUI_VER=$(grep_prop "ro.miui.ui.version.*")
+MIUI_VER=$(getprop | grep "ro.miui.ui.version.*")
 if [ -n "$MIUI_VER" ]; then
-    ui_print "- Detect MIUI/HyperOS"
-    if ! pm list packages | grep "com.xiaomi.xmsf" 2>/dev/null; then
-        ui_print "! Detect MIUI props but doesn't find out"
-        ui_print "! Xiaomi Mobile Service Framework"
-        ui_print "- Continue anyway because it"
-        ui_print "- might be props spoof"
+    if ! pm list packages | grep "com.xiaomi.xmsf" >/dev/null 2>&1; then
+        ui_print "! Detect MIUI/HyperOS version properties"
+        ui_print "! but doesn't find out xmsf"
+        ui_print "- Continue anyway because it might be"
+        ui_print "- a simple properties spoof"
     else
         ui_print "! Detect MIUI/HyperOS"
         abort "! You don’t need to flash $MOD_NAME"
